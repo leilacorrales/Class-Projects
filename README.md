@@ -1,2 +1,3 @@
 # Class-Projects
-Every Class Project from CPP
+Organizing class projects from CalPolyPomona
+
