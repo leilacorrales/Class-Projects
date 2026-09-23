@@ -1,0 +1,4 @@
+model,test_records,accuracy,roc_auc,confusion_matrix_file
+Decision Tree,209,0.5789473684210527,0.5983835005574135,decision_tree_confusion_matrix.png
+Logistic Regression,209,0.6555023923444976,0.6467391304347827,logistic_regression_confusion_matrix.png
+Neural Network,209,0.5645933014354066,0.5924842066146415,neural_network_confusion_matrix.png

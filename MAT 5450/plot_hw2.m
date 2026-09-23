@@ -18,10 +18,9 @@ function [t, x, solution] = plot_hw2(X_0, Xdot_0, Omega, delta, tRange)
     elseif delta < 1
         solution = 'underdamped';
         omegaP = Omega.* sqrt(1-delta^2);
-        x = exp(-delta .* t .* Omega) .* (
-            (X_0 .* cos(i .* omegaP .* t) - ... 
-            ((X_0 .* 2.* Xdot_0 + 2.* delta.* Omega * X_0 - 2.* X_0 .* omegaP ) / ...
-            omegaP) .* sin(i.* omegaP .* t)));
+        B = (Xdot_0 + delta .* Omega .* X_0) ./ omegaP;
+        x = exp(-delta .* t .* Omega) .* ...
+            (X_0 .* cos(omegaP .* t) + B .* sin(omegaP .* t));
     else
         solution = 'overdamped';
         lambda1 = -delta .* Omega + Omega .* sqrt(delta^2 - 1);
@@ -36,5 +35,7 @@ function [t, x, solution] = plot_hw2(X_0, Xdot_0, Omega, delta, tRange)
     grid on;
     xlabel('t');
     ylabel('x(t)');
-    title(solution);
+    title(sprintf(['Solution is %s; delta = %.2f, omega = %.2f, ' ...
+        'X(0) = %.2f, X''(0) = %.2f'], ...
+        solution, delta, Omega, X_0, Xdot_0));
 end

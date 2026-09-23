@@ -1,0 +1,18 @@
+LOGISTIC REGRESSION DIAGNOSTICS
+Complete records used: 522
+High-risk events: 231
+
+Independence of errors: NEEDS REVIEW
+Evidence: customer_id is unique for every original record and no customer is repeated; this supports one row per customer but does not prove independence of all observations.
+
+Linearity in the logit: MET
+Evidence: Box-Tidwell-style age_group interaction p-value = 0.974165; age_group is grouped/ordinal, so this result should be interpreted cautiously.
+
+Multicollinearity: MET
+Evidence: calculated VIF values were age_group=1.033, gender=1.023, housing=1.024, saving acc=1.017, checking acc=1.023; the largest VIF was 1.033.
+
+Influential outliers: NEEDS REVIEW
+Evidence: approximate Cook's distance used the 4/n threshold of 0.007663; 17 record(s) exceeded the threshold and the maximum Cook's distance was 0.016805.
+
+Events per predictor: MET
+Evidence: 231 high-risk events / 5 predictors = 46.20 events per predictor, above the commonly recommended 10–20 range.
