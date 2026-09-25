@@ -1,6 +1,5 @@
 function [t, x] = ode45_hw2(X0, Xdot0, omega, delta, tRange)
 % Solve a damped oscillator using ode45.
-% x'' + 2*delta*Omega*x' + Omega^2*x = 0
 %
 % Example: ode45_hw2()
 
