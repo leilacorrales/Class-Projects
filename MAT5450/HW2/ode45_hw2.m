@@ -3,7 +3,7 @@ function [t, x] = ode45_hw2(X0, Xdot0, omega, delta, tRange)
 %
 % Example: ode45_hw2()
 
-    tSpan = linspace(tRange(1), tRange(2), 1000);
+    tSpan = linspace(tRange(1), tRange(5), 1000);
     
     if delta == 1
         solution = 'critically damped';
