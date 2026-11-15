@@ -1,0 +1,47 @@
+DATA C: VALUABLE PRODUCT COMBINATIONS AND RETAIL STRATEGIES
+
+BUSINESS ANSWER
+The strongest association is herb & pepper with ground beef. For a promotion with broader observed reach, ground beef with spaghetti is a strong candidate because it combines meaningful basket frequency with a lift above two. Olive oil with spaghetti also supports a practical meal promotion. These are priorities for testing, not established profit rankings, because prices, margins and promotion costs were not supplied.
+
+METHOD AND EVALUATION
+The existing Apriori analysis uses 7,501 non-empty shopping baskets. Each row is one basket, including the first row; blanks are removed and repeated items within a basket count once.
+Minimum support is 1% (at least 76 baskets), and minimum confidence is 20%. The saved results contain 257 frequent itemsets and 162 directional association rules.
+Support is the share of all baskets containing both products. Confidence A -> B is the share of A baskets also containing B. Lift is confidence divided by B's overall purchase frequency; lift above one indicates a positive association.
+The table lists the ten strongest distinct two-product combinations by lift among qualifying positive rules. Reverse directions are combined to avoid counting the same pair twice. The displayed A -> B direction met both thresholds; reverse confidence is descriptive and may be below 20%.
+All saved rule metrics were checked against the original transaction workbook. No statistical significance tests or multiple-testing corrections were performed; these are threshold-qualified positive associations, not claims of statistical significance.
+
+SUMMARY TABLE
+Rule (A -> B) | Baskets | Support | Confidence A -> B | Confidence B -> A | Lift
+herb & pepper -> ground beef | 120 | 1.60% | 32.35% | 16.28% | 3.292
+tomatoes -> frozen vegetables | 121 | 1.61% | 23.59% | 16.92% | 2.474
+shrimp -> frozen vegetables | 125 | 1.67% | 23.32% | 17.48% | 2.447
+soup -> milk | 114 | 1.52% | 30.08% | 11.73% | 2.321
+spaghetti -> ground beef | 294 | 3.92% | 22.51% | 39.89% | 2.291
+grated cheese -> ground beef | 85 | 1.13% | 21.63% | 11.53% | 2.201
+olive oil -> ground beef | 106 | 1.41% | 21.46% | 14.38% | 2.184
+red wine -> spaghetti | 77 | 1.03% | 36.49% | 5.90% | 2.096
+olive oil -> spaghetti | 172 | 2.29% | 34.82% | 13.17% | 2.000
+olive oil -> milk | 128 | 1.71% | 25.91% | 13.17% | 2.000
+
+INTERPRETATION AND PRIORITIES
+Herb & pepper -> ground beef has support 1.60% (120 baskets), confidence 32.35%, and lift 3.292. Ground beef appears about 3.29 times as frequently among herb & pepper baskets as it does overall. This is the strongest association, although its reach is relatively narrow.
+Ground beef and spaghetti occur together in 294 baskets (3.92%). Among ground-beef baskets, 39.89% include spaghetti; among spaghetti baskets, 22.51% include ground beef. Lift is 2.291 in either direction. The greater frequency makes this pair a sensible first meal-bundle pilot.
+Olive oil -> spaghetti has support 2.29% (172 baskets), confidence 34.82%, and lift 2.000. This provides a pantry-based alternative for coordinated promotions.
+For comparison, the most frequent qualifying positive pair is spaghetti with mineral water: support 5.97%, confidence 34.30%, lift 1.439. High lift is not the same as greatest reach; wider-reaching pairs can also merit tests.
+
+CORRESPONDING BUSINESS STRATEGIES
+- herb & pepper + ground beef: Offer a seasoning-and-beef recipe promotion; add shelf signage between meat and seasonings.
+- tomatoes + frozen vegetables: Promote vegetable meal ideas with signs linking fresh produce and frozen vegetables.
+- shrimp + frozen vegetables: Test a shrimp-and-vegetable stir-fry bundle and coordinated freezer displays.
+- soup + milk: Test a soup-and-dairy meal promotion with cross-aisle reminders.
+- spaghetti + ground beef: Prioritize a pasta-and-meat dinner offer, using recipe cards and coordinated stock planning.
+- grated cheese + ground beef: Test a cheese-and-beef meal add-on coupon and recipe signage.
+- olive oil + ground beef: Recommend olive oil alongside beef recipes through shelf signs or digital offers.
+- red wine + spaghetti: Test a pasta-and-wine meal display where store policy permits.
+- olive oil + spaghetti: Cross-promote pasta and olive oil as a pantry meal combination.
+- olive oil + milk: Test recipe-based cross-aisle reminders for dairy and cooking oil; confirm incremental purchases before discounting.
+
+IMPLEMENTATION AND MEASUREMENT
+Start with small, time-limited pilots for ground beef/spaghetti and herb & pepper/ground beef. Use recipe cards, nearby compatible displays or cross-aisle signs while preserving refrigeration requirements. Coordinate inventory so both items are available during promotions.
+Compare pilot stores or periods with a suitable control. Track paired-basket rate, incremental units, gross margin after discounts, stockouts and waste. Expand only when incremental margin supports the offer; association alone does not show that a promotion causes extra sales.
+These rules describe observed purchasing behavior. They do not prove that products are substitutes, complements or profitable bundles, and results can change with season, pricing or customer mix.

@@ -1,0 +1,43 @@
+DATA B: CUSTOMER TYPES AND TARGETED MARKETING RECOMMENDATIONS
+
+K-means separates the 8,950 customers into 4 groups based on purchases, cash advances and outstanding balance. The analysis uses log-transformed, standardized values so that monetary scale and extreme observations do not dominate distances.
+The features were chosen for their business relevance: purchases indicate card spending, cash advances distinguish cash-access usage, and balance describes outstanding amounts. No customer identifier, protected attribute or supervised target enters the model.
+For k=4, silhouette is 0.5295 (higher is better), and Davies-Bouldin is 0.6803 (lower is better). The elbow heuristic suggests 4 clusters. Scores compare k=2 through k=10; silhouette uses a fixed random sample of 2,500 customers.
+
+SUMMARY TABLE (MEDIANS IN ORIGINAL DATASET MONETARY UNITS)
+Cluster | Customers | Share | Purchases | Cash advance | Balance | Customer type
+0 | 2,163 | 24.17% | 619.60 | 1,213.39 | 1,852.65 | Mixed purchases and cash advances
+1 | 2,020 | 22.57% | 0.00 | 1,272.31 | 1,498.24 | Cash-advance-focused, minimal purchases
+2 | 2,033 | 22.72% | 295.00 | 0.00 | 30.40 | Low-balance purchasers
+3 | 2,734 | 30.55% | 1,185.47 | 0.00 | 827.53 | Purchase-focused customers with balances
+
+SEGMENT INTERPRETATION AND STRATEGIES
+Cluster 0: Mixed purchases and cash advances
+Customers combine purchase activity with cash advances and have relatively high balances. They represent a distinct mixed-use group.
+Arithmetic mean purchases: 1,239.38; cash advances: 2,125.15; balance: 2,698.29.
+Recommended strategy: Test retention messaging and rewards tied to existing purchase activity, alongside transparent cash-access costs and optional payment-management tools. Do not infer repayment capacity or automatically raise credit limits from this segment.
+Evaluate the pilot: Track incremental purchases, retention, reward cost and payment-tool engagement.
+
+Cluster 1: Cash-advance-focused, minimal purchases
+Customers use the card primarily for cash advances, with almost no purchasing activity. Their outstanding balances are substantial relative to the low-balance group.
+Arithmetic mean purchases: 0.29; cash advances: 2,049.77; balance: 2,212.96.
+Recommended strategy: Offer clear cash-access cost information, optional payment reminders and budgeting tools. Test a modest purchase-activation incentive for customers who want to use the card for everyday spending. Avoid treating cash usage alone as proof of financial distress or eligibility for more borrowing.
+Evaluate the pilot: Track voluntary purchase activation, offer cost, engagement with payment tools and customer retention.
+
+Cluster 2: Low-balance purchasers
+Customers make purchases while holding low observed balances and using very little cash advance. Low balances alone do not prove that they pay in full every period.
+Arithmetic mean purchases: 409.80; cash advances: 11.30; balance: 39.53.
+Recommended strategy: Test low-cost everyday-purchase rewards and card-engagement messages. Keep incentives modest because current purchase amounts are lower than those of the purchase-focused group.
+Evaluate the pilot: Track active-card usage, incremental purchases, incentive cost and retention.
+
+Cluster 3: Purchase-focused customers with balances
+Customers emphasize purchases, with almost no cash advances, and maintain higher balances than the low-balance purchasers.
+Arithmetic mean purchases: 1,998.61; cash advances: 0.26; balance: 1,322.28.
+Recommended strategy: Test purchase-category rewards or merchant offers, paired with useful spending summaries and optional payment reminders. Tailor messages to purchase activity without assuming that these customers are premium, profitable or low risk.
+Evaluate the pilot: Track offer redemption, incremental purchases, retention and net campaign contribution.
+
+FIGURE AND IMPLEMENTATION
+data_b_customer_segments_3d.png plots all customers on the three standardized log1p feature axes. Colors and labels identify clusters; black X markers identify centroids. The figure uses the same coordinates used by K-means.
+data_b_cluster_selection.png shows the elbow curve, silhouette scores and Davies-Bouldin indices. data_b_cluster_profiles.csv contains arithmetic means, medians and inverse-transformed log centroids. Medians are emphasized in the summary because monetary distributions are skewed.
+Run small controlled marketing pilots before rollout. Measure incremental campaign contribution after rewards and communication costs, rather than treating cluster membership as proof of profitability.
+This segmentation describes observed behavior. It does not establish income, creditworthiness, repayment capacity, full-payment behavior or causal effects. Cluster labels are arbitrary, and conclusions depend on selected features and transformations. Reassess profiles with refreshed data before reusing them.

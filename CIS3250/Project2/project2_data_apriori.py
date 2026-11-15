@@ -15,7 +15,8 @@ import matplotlib.pyplot as plt
 
 
 # Replace this with your own path. Because the input is Excel, use read_excel.
-DATA_PATH = r""
+DATA_PATH = r"Project2.3data-1.xlsx"
+
 OUTPUT_DIR = Path("project2_data_c_outputs")
 MIN_SUPPORT = 0.01
 MIN_CONFIDENCE = 0.20
@@ -74,9 +75,6 @@ def apriori(transactions, min_support):
 
 
 def main():
-    if not DATA_PATH:
-        raise ValueError("Replace DATA_PATH with the path to Project 2.3 data.xlsx.")
-
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     # The dataset is horizontal: one row is one transaction and cells are items.
     df = pd.read_excel(DATA_PATH, header=None)

@@ -1,0 +1,11 @@
+product_A,product_B,basket_count,support_percent,confidence_A_to_B_percent,confidence_B_to_A_percent,lift,recommendation
+herb & pepper,ground beef,120,1.59978669510731,32.345013477088955,16.28222523744912,3.2919938411349285,Offer a seasoning-and-beef recipe promotion; add shelf signage between meat and seasonings.
+tomatoes,frozen vegetables,121,1.6131182508998798,23.58674463937621,16.923076923076923,2.4744639376218323,Promote vegetable meal ideas with signs linking fresh produce and frozen vegetables.
+shrimp,frozen vegetables,125,1.6664444740701199,23.32089552238805,17.482517482517483,2.44657394843962,Test a shrimp-and-vegetable stir-fry bundle and coordinated freezer displays.
+soup,milk,114,1.51979736035195,30.07915567282322,11.728395061728396,2.3212319619531585,Test a soup-and-dairy meal promotion with cross-aisle reminders.
+spaghetti,ground beef,294,3.91947740301293,22.5114854517611,39.89145183175034,2.29116217603338,"Prioritize a pasta-and-meat dinner offer, using recipe cards and coordinated stock planning."
+grated cheese,ground beef,85,1.13318224236768,21.62849872773537,11.533242876526458,2.201294015695292,Test a cheese-and-beef meal add-on coupon and recipe signage.
+olive oil,ground beef,106,1.41314491401146,21.45748987854251,14.382632293080054,2.183889166607156,Recommend olive oil alongside beef recipes through shelf signs or digital offers.
+red wine,spaghetti,77,1.02652979602719,36.49289099526066,5.895865237366003,2.095966120638976,Test a pasta-and-wine meal display where store policy permits.
+olive oil,spaghetti,172,2.2930275963204902,34.81781376518219,13.169984686064318,1.999758201015556,Cross-promote pasta and olive oil as a pantry meal combination.
+olive oil,milk,128,1.7064391414478,25.910931174089068,13.168724279835391,1.9995668182802688,Test recipe-based cross-aisle reminders for dairy and cooking oil; confirm incremental purchases before discounting.

@@ -1,0 +1,42 @@
+DATA B: CUSTOMER SEGMENTATION FOR TARGETED BANK MARKETING
+
+Business question: Which customer types emerge from credit-card usage, and how can the bank tailor its marketing?
+
+DATA PREPARATION AND FEATURE CHOICE
+Input: 8,950 rows. Analyzed: 8,950; removed 0 duplicate rows/customer IDs.
+Selected three features by business reasoning: PURCHASES measures purchasing activity, CASH_ADVANCE measures cash-access usage, and BALANCE measures outstanding balance.
+These describe purchasing, cash usage and balance levels. They are not supervised feature-importance scores.
+CUST_ID is an identifier, excluded from clustering. The selected variables are numeric; categorical encoding is unnecessary.
+Missing, non-finite or negative selected values are replaced with feature medians. Other columns are retained for context but do not enter the model.
+Imputed counts: {'PURCHASES': 0, 'CASH_ADVANCE': 0, 'BALANCE': 0}. Applied log1p to reduce monetary skew, then standardized each feature to mean zero and unit variance.
+Large valid values were retained. Inverse-transformed log centroids are not arithmetic means.
+
+CHOOSING THE NUMBER OF CLUSTERS
+ k      inertia  silhouette_sample_2500  Davies_Bouldin_index  smallest_cluster_count  elbow_chord_distance
+ 2 13761.458166                0.469811              0.940509                    4089              0.000000
+ 3  8791.118584                0.515864              0.712606                    2082              0.217707
+ 4  5135.782958                0.529527              0.680280                    2020              0.354430
+ 5  4243.681061                0.489558              0.733214                     848              0.320981
+ 6  3648.526812                0.474137              0.737588                     281              0.269245
+ 7  3184.957264                0.434376              0.871383                     264              0.209406
+ 8  2866.576865                0.414757              0.901879                     264              0.140625
+ 9  2570.362224                0.423272              0.873623                     263              0.070478
+10  2279.542912                0.367350              0.913151                     177              0.000000
+The endpoint-chord elbow heuristic suggests k=4. The primary rule (highest silhouette, DB as tie-breaker) selects k=4.
+The lowest Davies-Bouldin index occurs at k=4.
+Silhouette uses the same reproducible random sample of up to 2,500 customers for each k; inertia and DB use all customers.
+The elbow and DB are cross-checks, not guarantees of a uniquely correct segmentation. See the selection figure to assess disagreements.
+K-means uses 20 initializations and random seed 42; labels have no inherent order.
+
+CUSTOMER PROFILES
+         customers    percent  PURCHASES_mean  PURCHASES_median  CASH_ADVANCE_mean  CASH_ADVANCE_median  BALANCE_mean  BALANCE_median  PURCHASES_inverse_log_centroid  CASH_ADVANCE_inverse_log_centroid  BALANCE_inverse_log_centroid
+cluster                                                                                                                                                                                                                               
+0             2163  24.167598     1239.379025           619.600        2125.148348          1213.388649   2698.288944     1852.646433                      596.883536                        1080.769026                   1717.208530
+1             2020  22.569832        0.292178             0.000        2049.771156          1272.312672   2212.955961     1498.235452                        0.048935                        1003.279799                   1293.161236
+2             2033  22.715084      409.797162           295.000          11.295715             0.000000     39.531614       30.395073                      228.570227                           0.308284                     22.537049
+3             2734  30.547486     1998.609583          1185.475           0.255543             0.000000   1322.279410      827.527873                      992.780453                           0.032218                    755.969712
+
+See data_b_business_deliverable.txt for segment-specific interpretations and recommendations.
+The 3D figure shows all three transformed, standardized model inputs and labels each cluster and centroid.
+This is descriptive segmentation, without a target label or classification accuracy. It does not establish creditworthiness, repayment capacity or causation.
+Pilot offers within each segment and compare acceptance, incremental usage, retention and cost before broader rollout.

@@ -1,0 +1,58 @@
+DATA A: ONE MULTIPLE LINEAR REGRESSION MODEL
+
+Outcome: Global_Sales. Predictors: NA_Sales, Year, Publisher, Genre, Platform.
+EU_Sales, JP_Sales, Other_Sales and Rank are excluded as predictors.
+Dropped 307 rows with missing/non-finite required values. Random 80/20 split; seed 42.
+Categories use training-only dummy encoding; most frequent training category is the reference.
+Publisher: 52 test rows with unseen levels (coded as reference)
+Genre: 0 test rows with unseen levels (coded as reference)
+Platform: 0 test rows with unseen levels (coded as reference)
+Aliased columns removed: []
+
+MODEL FIT AND TEST ACCURACY
+     model  n_original  n_cleaned  n_train  n_test  n_encoded_predictors  R_squared_training  Adjusted_R_squared_training  F_statistic  F_df_numerator  F_df_denominator  F_p_value  Test_R_squared  Test_RMSE  Test_MAE
+Single_OLS       16598      16291    13032    3259                   570             0.88128                     0.875849    162.28103             570             12461        0.0        0.926203   0.561872  0.205045
+F is the overall regression F-statistic, not a classification F1 score.
+A stored p-value of 0.0 underflows floating-point precision; report p < 0.001, not literally zero.
+Adjusted R-squared and the F-test describe training fit; test R-squared, RMSE and MAE measure held-out accuracy.
+
+FEATURE IMPORTANCE (NUMERIC)
+  feature  test_R2_decrease_mean  test_R2_decrease_sd
+ NA_Sales               1.661395             0.020001
+Publisher               0.008914             0.000625
+ Platform               0.003810             0.000570
+    Genre               0.000302             0.000188
+     Year               0.000267             0.000129
+Importance is the mean decrease in held-out R-squared across 20 permutations of each original variable; categorical dummy columns move together.
+Larger decreases mean greater predictive importance. Correlated features can share or mask importance; values are not percentages or causal effects.
+
+TOP 20 STANDARDIZED COEFFICIENTS
+                             predictor  B_unstandardized  Beta_standardized  standard_error    t_value      p_value  significant_at_0.05_unadjusted  abs_standardized_beta
+                              NA_Sales          1.717026           0.919039        0.006257 274.409009 0.000000e+00                            True               0.919039
+                    Publisher=Nintendo          0.453167           0.065193        0.029003  15.624687 1.624984e-54                            True               0.065193
+                          Platform=PS3          0.162201           0.030911        0.022174   7.314896 2.733455e-13                            True               0.030911
+            Publisher=Enix Corporation          0.918507           0.027842        0.105296   8.723138 3.047069e-18                            True               0.027842
+                          Platform=PS4          0.271429           0.027727        0.037029   7.330120 2.441382e-13                            True               0.027727
+                         Platform=2600         -0.388874          -0.023142        0.087994  -4.419307 9.985451e-06                            True               0.023142
+                           Platform=PS          0.118604           0.021873        0.031231   3.797708 1.467336e-04                            True               0.021873
+                         Platform=SNES          0.251198           0.021232        0.054089   4.644181 3.449185e-06                            True               0.021232
+                    Genre=Role-Playing          0.103671           0.021057        0.019791   5.238379 1.646340e-07                            True               0.021057
+                  Publisher=SquareSoft          0.482325           0.019781        0.080362   6.001908 2.004317e-09                            True               0.019781
+                          Platform=PS2          0.081869           0.019474        0.020290   4.034974 5.493440e-05                            True               0.019474
+                                  Year          0.004607           0.019069        0.002174   2.118722 3.413369e-02                            True               0.019069
+                           Platform=GB          0.290551           0.016045        0.065173   4.458131 8.339970e-06                            True               0.016045
+                         Platform=X360         -0.078662          -0.014631        0.022188  -3.545190 3.937691e-04                            True               0.014631
+                           Platform=GC         -0.113259          -0.014109        0.030077  -3.765623 1.668983e-04                            True               0.014109
+                          Platform=SAT          0.191769           0.014075        0.055680   3.444149 5.747440e-04                            True               0.014075
+Publisher=Konami Digital Entertainment          0.089650           0.013898        0.025164   3.562616 3.685490e-04                            True               0.013898
+                          Platform=N64         -0.134462          -0.013218        0.040830  -3.293250 9.931237e-04                            True               0.013218
+ Publisher=Sony Computer Entertainment          0.088500           0.012514        0.027622   3.203943 1.359004e-03                            True               0.012514
+                           Platform=XB         -0.077692          -0.011843        0.026785  -2.900545 3.731652e-03                            True               0.011843
+
+COEFFICIENT INTERPRETATION
+B is the expected change in Global_Sales per unit increase, holding the other included predictors constant.
+Dummy B compares a category with its reference. Standardized Beta = B * training SD(X) / training SD(Y); the intercept has no standardized Beta.
+The coefficient CSV includes all retained terms, standard errors, t-values and unadjusted p-values.
+Category p < .05 flags are exploratory; no multiple-comparison adjustment is applied.
+OLS p-values assume a correctly specified model with homoskedastic independent errors; causal effects are not established.
+NA_Sales is part of Global_Sales. This estimates global totals conditional on known North American sales, rather than pre-release forecasts.

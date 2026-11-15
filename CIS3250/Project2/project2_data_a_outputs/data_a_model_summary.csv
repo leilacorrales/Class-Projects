@@ -1,0 +1,2 @@
+model,n_original,n_cleaned,n_train,n_test,n_encoded_predictors,R_squared_training,Adjusted_R_squared_training,F_statistic,F_df_numerator,F_df_denominator,F_p_value,Test_R_squared,Test_RMSE,Test_MAE
+Single_OLS,16598,16291,13032,3259,570,0.8812799249298614,0.8758493461007162,162.28102982321886,570,12461,0.0,0.9262031461486423,0.5618723706095601,0.2050450517278704

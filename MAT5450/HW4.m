@@ -1,7 +1,7 @@
 function HW4(r_values)
 % compare different r vlues given a and b
 
-    x = linspace(-4, 4, 500);
+    x = linspace(-2, 4, 500);
     figure;
     hold on;
     for i = 1:length(r_values)

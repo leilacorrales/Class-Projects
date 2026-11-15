@@ -1,0 +1,34 @@
+DATA C: APRIORI MARKET-BASKET ANALYSIS REPORT
+
+Transactions analyzed: 7501
+Minimum support: 1.00%
+Minimum confidence: 20.00%
+Frequent itemsets identified: 257
+Association rules generated: 162
+The data was read horizontally: each row is a transaction and each non-empty cell is an item.
+The first row was retained as a transaction, so all original item positions, including olive oil, were preserved.
+
+TOP 10 TWO-ITEM RULES
+   antecedent        consequent  antecedent_size  consequent_size  support  confidence     lift  two_item_rule
+herb & pepper       ground beef                1                1 0.015998    0.323450 3.291994           True
+     tomatoes frozen vegetables                1                1 0.016131    0.235867 2.474464           True
+       shrimp frozen vegetables                1                1 0.016664    0.233209 2.446574           True
+         soup              milk                1                1 0.015198    0.300792 2.321232           True
+    spaghetti       ground beef                1                1 0.039195    0.225115 2.291162           True
+  ground beef         spaghetti                1                1 0.039195    0.398915 2.291162           True
+grated cheese       ground beef                1                1 0.011332    0.216285 2.201294           True
+    olive oil       ground beef                1                1 0.014131    0.214575 2.183889           True
+     red wine         spaghetti                1                1 0.010265    0.364929 2.095966           True
+    olive oil         spaghetti                1                1 0.022930    0.348178 1.999758           True
+
+INTERPRETATION
+Support measures how often the combination appears in all transactions.
+Confidence measures how often the consequent appears when the antecedent appears.
+Lift compares the observed combination with the frequency expected if the items were independent.
+Lift above 1 indicates a positive association.
+
+BUSINESS RECOMMENDATIONS
+1. Consider placing high-lift product pairs closer together.
+2. Test bundles or promotions for rules with useful support and high lift.
+3. Use confidence to estimate the likelihood of the consequent after an antecedent purchase.
+4. Avoid relying on lift alone; prioritize rules that also have meaningful support.
