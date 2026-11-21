@@ -1,0 +1,15 @@
+Logistic Regression CS 4650:
+
+rows are shifts from work
+target: "class" --> has 3 possible integers:
+	0 = no accident
+	1 = type 1 accident
+	2 = type 2 accident
+
+we want the "probability" of an accident. 
+
+fatigue does not guarantee an accident, but probabilities increase
+
+given the features, what is the probability. can we predict if chances of an accident INCREASES based on features.
+
+which features affect the probability of an accident occurring

@@ -1,0 +1,13 @@
+variable,role,definition,source,use
+country_code,Identifier,ISO-3 country code,World Bank country metadata,Merge key
+year,Identifier,Calendar year,HBS and World Bank,Merge key; study period 1970-2016
+currency_crisis,Outcome,1 if HBS raw code is 1 or 2; 0 if raw code is 0,HBS Global Crises Data,Main dependent variable
+inflation,Predictor,"Consumer-price inflation, annual percent",World Bank WDI FP.CPI.TOTL.ZG,Observed year-level value; no lag applied
+GDP_growth,Predictor,"GDP growth, annual percent",World Bank WDI NY.GDP.MKTP.KD.ZG,Observed year-level value; no lag applied
+reserves,Predictor,"Total reserves including gold, current US dollars",World Bank WDI FI.RES.TOTL.CD,Observed year-level value; no lag applied
+external_debt,Predictor,"External debt stocks, percent of GNI",World Bank WDI DT.DOD.DECT.GN.ZS,Observed year-level value; no lag applied
+current_account,Predictor,"Current-account balance, percent of GDP",World Bank WDI BN.CAB.XOKA.GD.ZS,Observed year-level value; no lag applied
+export_growth,Predictor,"Export growth, annual percent",World Bank WDI NE.EXP.GNFS.KD.ZG,Observed year-level value; no lag applied
+exchange_rate,Predictor,Local currency units per US dollar,World Bank WDI PA.NUS.FCRF,Used to calculate depreciation
+exchange_rate_change,Predictor,Annual percent change in local currency per US dollar,Calculated from exchange_rate,Observed year-level value; no lag applied
+emerging_developing,Sample flag,1 for HBS country not in IMF WEO advanced-economy list,IMF WEO Groups and Aggregates,Sample filter
